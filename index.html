@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AR.js A-Frame Location-based</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.1/axios.min.js" integrity="sha512-m9S8W3a9hhBHPFAbEIaG7J9P92dzcAWwM42VvJp5n1/M599ldK6Z2st2SfJGsX0QR4LfCVr681vyU5vW8d218w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      type="text/javascript"
+      src="https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <style>
+      body {
+        /* background-image: url(tbg.webp); */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: fixed;
+        background-attachment: fixed;
+      }
+      @media (max-width: 576px) {
+        .rewards {
+          width: 50%;
+        }
+      }
+      .rewards h3 {
+        font-size: 24px;
+      }
+      .rewards h3 {
+        font-size: 1.5rem;
+      }
+      .rewards {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .rewards {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        grid-gap: 10px;
+      }
+      .question-container {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="!m-0 p-0">
+    <!-- Camera Scene  -->
+    <div id="cameraScene" class="flex justify-center items-center min-h-screen">
+
+      <div>
+        <a-scene
+          device-orientation-permission-ui="enabled: false"
+          vr-mode-ui="enabled: false"
+          arjs="trackingMethod: best ;sourceType: webcam; videoTexture: true; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
+          renderer="antialias: true; alpha: true"
+          >
+          <video
+            id="cameraFeed"
+            autoplay
+            playsinline
+            style="display: none"
+          ></video>
+
+          <script>
+            // Get the video element
+            const video = document.getElementById("cameraFeed");
+
+            let cameraStream = null;
+            // Check if getUserMedia is available in the browser
+            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+              navigator.mediaDevices
+                .getUserMedia({ video: {facingMode: 'environment'} })
+                .then(function (stream) {
+                  // Assign the camera stream to the video element
+                  video.srcObject = stream;
+                  cameraStream = stream;
+                })
+                .catch(function (error) {
+                  console.error("Error accessing camera:", error);
+                });
+            } else {
+              console.error("getUserMedia is not supported in this browser.");
+            }
+          </script>
+
+          <a-camera
+            gps-new-camera="gpsMinDistance: 5"
+            position="0 0.1 0"
+            look-controls-enabled="false"
+            arjs-look-controls="smoothingFactor: 0.1"
+
+          ></a-camera>
+
+
+          <!-- 3dmodels here -->
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place="latitude: 10.049273; longitude: 76.331085"
+            scale="5 5 5"
+          ></a-entity>
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+
+          <a-entity
+            id="gltfModel1"
+            gltf-model="./3dmodels/Dhisna_logo_AR.glb"
+            gps-new-entity-place=""
+            scale="5 5 5"
+          ></a-entity>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </a-scene>
+      </div>
+    </div>
+    <!-- Camera Scene  -->
+
+    
+    <!-- Bottom Nav  -->
+    <div id="botNav" class="h-[10%] mb-0 w-screen">
+      <img src="../assets/bg.png" alt="bg" class="w-screen h-20 absolute bottom-0" />
+      <!-- <div>
+        <img
+          src="../assets/map.png"
+          alt="camera"
+          class="w-11 h-11 my-4 mx-5 absolute bottom-0 border-b-20 border-#1E1E1E"
+          />
+      </div>
+      <div id="storyBtn">
+        <img
+          src="../assets/story.png"
+          alt="map"
+          class="w-11 h-11 absolute bottom-1 right-0 mr-5 mb-4"
+        />
+      </div> -->
+      <div id="centerBtn">
+        <img
+          id="centerImg"
+          src="../assets/sait.png"
+          alt="btn"
+          class="w-20 absolute left-1/2 transform -translate-x-1/2 bottom-10 right-0.5 mb-3"
+            onclick="window.location.href = 'developers.html';"
+        />
+      </div>
+    </div>
+    
+
+  </body>
+</html>

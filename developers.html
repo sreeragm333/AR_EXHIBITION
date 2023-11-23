@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.1/axios.min.js" integrity="sha512-m9S8W3a9hhBHPFAbEIaG7J9P92dzcAWwM42VvJp5n1/M599ldK6Z2st2SfJGsX0QR4LfCVr681vyU5vW8d218w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: black;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        li {
+            margin: 5px;
+        }
+
+        /* Arrange the list in alphabetical order */
+        li {
+            font-size: 16px;
+        }
+
+        /* Divide the list into two columns */
+        ul::before,
+        ul::after {
+            content: '';
+            flex-basis: 50%;
+            order: 1;
+        }
+
+        @media screen and (max-width: 600px) {
+            /* For small screens, display in a single column */
+            ul::before,
+            ul::after {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="h-screen bg-black">
+    <div class="mt-8 p-8 ml-2 mr-2 border-4 border-amber-100 rounded-lg shadow-md text-white h-auto">
+        <div class="flex flex-row justify-center items-center gap-10">
+            <h1 id="heading" class="text-3xl font-bold mb-4 text-orange-500">AR TEAM</h1>
+        </div>
+        <ul>
+            <!-- List items in alphabetical order -->
+            <li>Aakash PR</li>
+            <li>Abhinav</li>
+            <li>Abhinav CV</li>
+            <li>Abhinav MR</li>
+            <li>Adarsh</li>
+            <li>Advaith</li>
+            <li>Aiswarya</li>
+            <li>Akash</li>
+            <li>Amal</li>
+            <li>Anna Susan</li>
+            <li>Arjun</li>
+            <li>Arundhathi</li>
+            <li>Dheeraj Dileep</li>
+            <li>Gowri Vinod</li>
+            <li>Hafeefa</li>
+            <li>Ivine Joju</li>
+            <li>Jithin</li>
+            <li>Mariam</li>
+            <li>Maria Alex</li>
+            <li>Mrudul John</li>
+            <li>Muneeb</li>
+            <li>Namitha Manoj</li>
+            <li>Nandana</li>
+            <li>Neha Tom</li>
+            <li>Nikhil P Babu</li>
+            <li>Philip</li>
+            <li>Shahid Zaman</li>
+            <li>Sravan VS</li>
+            <li>Sreedeep CS</li>
+            <li>Sreerag</li>
+            <li>Sruthy</li>
+            <li>Suryajith</li>
+            <li>Vishnu</li>
+            <li>Yadhu</li>
+        </ul>
+    </div>
+    
+    <div class="h-[10%]  mb-0 w-screen">
+        
+        <img src="../assets/bg.png" alt="bg" class="w-[100%] h-20 !absolute bottom-0">
+        <div class="flex-row justify-between">
+            <!-- <div id="cameraBtn">
+                <img src="../assets/camera.png" alt="camera" class="w-11 my-4 absolute bottom-0 left-[4vw]">
+            </div>
+            <div>
+                <img src="../assets/map.png" alt="map" class="w-11 absolute bottom-0 my-5 right-[4vw]">
+            </div> -->
+            <div id="cameraBtn" class="flex justify-center">
+                <img src="../assets/sait.png" alt="btn" class="w-[4.5rem] my-4 absolute bottom-3"
+                onclick="window.location.href = 'index.html';">
+            </div>
+        </div>
+    </div>
+    
+
+    
+       
+</body>
+</html>
